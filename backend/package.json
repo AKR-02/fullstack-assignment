@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Store Rating System Backend",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "setup-db": "node setup-db.js",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:seed:undo": "npx sequelize-cli db:seed:undo:all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.11.3",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
