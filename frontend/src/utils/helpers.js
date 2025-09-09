@@ -29,13 +29,13 @@ export const validatePassword = (password) => {
 };
 
 export const validateName = (name) => {
-  const minLength = name.length >= 20;
+  const minLength = name.length >= 5;
   const maxLength = name.length <= 60;
   
   return {
     isValid: minLength && maxLength,
     errors: {
-      minLength: !minLength ? 'Name must be at least 20 characters' : null,
+      minLength: !minLength ? 'Name must be at least 5 characters' : null,
       maxLength: !maxLength ? 'Name must be at most 60 characters' : null,
     }
   };

@@ -41,7 +41,7 @@ class AdminController {
           email: user.email,
           address: user.address,
           role: user.role,
-          created_at: user.created_at
+          createdAt: user.createdAt
         }
       });
     } catch (error) {
@@ -61,7 +61,7 @@ class AdminController {
 
   static async getAllUsers(req, res) {
     try {
-      const { name, email, address, role, sortBy = 'created_at', sortOrder = 'DESC' } = req.query;
+      const { name, email, address, role, sortBy = 'createdAt', sortOrder = 'DESC' } = req.query;
       
       const whereClause = {};
       if (name) whereClause.name = { [Op.iLike]: `%${name}%` };
@@ -72,7 +72,7 @@ class AdminController {
       const users = await User.findAll({
         where: whereClause,
         order: [[sortBy, sortOrder]],
-        attributes: ['id', 'name', 'email', 'address', 'role', 'created_at']
+        attributes: ['id', 'name', 'email', 'address', 'role', 'createdAt']
       });
 
       res.json({ users });
@@ -86,7 +86,7 @@ class AdminController {
     try {
       const { id } = req.params;
       const user = await User.findByPk(id, {
-        attributes: ['id', 'name', 'email', 'address', 'role', 'created_at']
+        attributes: ['id', 'name', 'email', 'address', 'role', 'createdAt']
       });
       
       if (!user) {
@@ -154,7 +154,7 @@ class AdminController {
 
   static async getAllStores(req, res) {
     try {
-      const { name, email, address, sortBy = 'created_at', sortOrder = 'DESC' } = req.query;
+      const { name, email, address, sortBy = 'createdAt', sortOrder = 'DESC' } = req.query;
       
       const whereClause = {};
       if (name) whereClause.name = { [Op.iLike]: `%${name}%` };

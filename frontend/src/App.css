@@ -260,6 +260,53 @@ body {
   background-color: #f9fafb;
 }
 
+/* ---- UI polish overrides (no external frameworks) ---- */
+:root {
+  --panel:#ffffff; --border:#e2e8f0; --ring:rgba(37,99,235,.4);
+  --primary:#2563eb; --primary-600:#1d4ed8; --primary-700:#1e40af;
+  --muted:#64748b; --text:#0f172a;
+}
+
+/* Cards: softer radius + shadow */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15,23,42,.06);
+}
+
+/* Buttons: weight, focus ring, subtle press */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  gap: 8px;
+  font-weight: 600;
+  transition: background-color .14s, color .14s, border-color .14s, box-shadow .14s, transform .06s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--primary); }
+.btn-primary:hover { background: var(--primary-600); }
+.btn-primary:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+.btn-outline { background:#fff; color: var(--text); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--primary); color: var(--primary-700); }
+
+/* Inputs: clearer focus + placeholder tone */
+.form-input { border-color: var(--border); border-radius: 10px; }
+.form-input::placeholder { color: var(--muted); }
+.form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
+
+/* Tables: zebra hover + header tint */
+.table thead th { background:#f8fafc; color: var(--muted); }
+.table tbody tr:hover { background:#f9fbff; }
+
+/* Small utilities used across pages */
+.text-muted { color: var(--muted); }
+.min-h-32 { min-height: 8rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.gap-6 { gap: 1.5rem; }
+@media (min-width:768px){ .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
 /* Rating stars */
 .rating {
   display: flex;

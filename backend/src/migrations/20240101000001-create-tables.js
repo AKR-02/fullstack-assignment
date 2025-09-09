@@ -51,7 +51,7 @@ module.exports = {
         autoIncrement: true
       },
       name: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(60),
         allowNull: false
       },
       email: {

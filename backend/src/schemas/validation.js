@@ -2,14 +2,14 @@ import { z } from 'zod';
 
 // Base schemas
 const emailSchema = z.string().email('Please provide a valid email address');
-const passwordSchema = z.string()
+const passwordSchema = z.string().trim()
   .min(8, 'Password must be at least 8 characters')
   .max(16, 'Password must be at most 16 characters')
   .regex(/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).*$/, 
     'Password must contain at least one uppercase letter and one special character');
 
 const nameSchema = z.string()
-  .min(20, 'Name must be at least 20 characters')
+  .min(5, 'Name must be at least 5 characters')
   .max(60, 'Name must be at most 60 characters');
 
 const addressSchema = z.string()

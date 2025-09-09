@@ -8,8 +8,14 @@ const Store = sequelize.define('Store', {
     autoIncrement: true
   },
   name: {
-    type: DataTypes.STRING(100),
-    allowNull: false
+    type: DataTypes.STRING(60),
+    allowNull: false,
+    validate: {
+      len: {
+        args: [5, 60],
+        msg: 'Name must be between 5 and 60 characters'
+      }
+    }
   },
   email: {
     type: DataTypes.STRING(255),

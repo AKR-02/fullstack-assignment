@@ -13,8 +13,8 @@ const User = sequelize.define('User', {
     allowNull: false,
     validate: {
       len: {
-        args: [20, 60],
-        msg: 'Name must be between 20 and 60 characters'
+        args: [5, 60],
+        msg: 'Name must be between 5 and 60 characters'
       }
     }
   },
@@ -33,8 +33,8 @@ const User = sequelize.define('User', {
     allowNull: false,
     validate: {
       len: {
-        args: [8, 16],
-        msg: 'Password must be between 8 and 16 characters'
+        args: [8, 72],
+        msg: 'Password must be between 8 and 72 characters'
       },
       is: {
         args: /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).*$/,

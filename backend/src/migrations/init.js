@@ -6,7 +6,7 @@ const createTables = async () => {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(60) NOT NULL CHECK (LENGTH(name) >= 20 AND LENGTH(name) <= 60),
+        name VARCHAR(60) NOT NULL CHECK (LENGTH(name) >= 5 AND LENGTH(name) <= 60),
         email VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL,
         address VARCHAR(400) NOT NULL CHECK (LENGTH(address) <= 400),
